@@ -558,6 +558,15 @@ h1 em,h2 em{font-style:italic;color:inherit}
         wa_label: (this.textContent || this.getAttribute('aria-label') || '').trim().replace(/\s+/g,' ').slice(0,80),
         wa_section: secao ? (secao.id || secao.className || secao.tagName).toString().split(' ')[0] : 'flutuante'
       });
+      /* Google Ads - conversao no clique do WhatsApp (AW-18338301466) */
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18338301466/O1y0CKuPmJcdEJqMsahE',
+          'value': 1.0,
+          'currency': 'BRL',
+          'transport_type': 'beacon'
+        });
+      }
     });
   }
 })();
